@@ -64,7 +64,7 @@ router.put('/complete/:id', function (req, res) {
         } else {
             // We connected to the database!!!
             // Now, we're going to GET things from thd DB
-            client.query(`UPDATE tasks SET is_complete=TRUE WHERE id=$2;`, [req.params.id], function (errorMakingQuery, result) {
+            client.query(`UPDATE tasks SET is_complete=TRUE WHERE id=$1;`, [req.params.id], function (errorMakingQuery, result) {
                 done();
                 if (errorMakingQuery) {
                     // Query failed. Did you test it in Postico?
